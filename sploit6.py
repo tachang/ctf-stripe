@@ -26,7 +26,12 @@ def check_validity( guess ):
   for i in range(0, bytes_to_block ):
     os.write(w, "A")
 
-  child = os.fork()
+  while(True):
+    try:
+      child = os.fork()
+      break
+    except:
+      pass
 
   #child = 0
   if( child == 0 ):
@@ -51,6 +56,8 @@ def check_validity( guess ):
     os.close(w)
     os.close(echo_read)
     os.close(echo_write)
+    os.kill(child, 9)
+
     if( output.find("Ha") >= 0 ):
       return False
     else:
